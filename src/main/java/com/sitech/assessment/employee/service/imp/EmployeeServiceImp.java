@@ -64,8 +64,8 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    public List<Employee> search(String name, Double fromSalary, Double toSalary) throws IOException {
-        return repository.findAll().stream()
+    public List<Employee> search(String name, Double fromSalary, Double toSalary , Integer page , Integer size) throws IOException {
+        return repository.findAllPaginated(page , size).stream()
                 .filter(e -> name == null || e.getFirstName().contains(name) || e.getLastName().contains(name))
                 .filter(e -> fromSalary == null || e.getSalary() >= fromSalary)
                 .filter(e -> toSalary == null || e.getSalary() <= toSalary)

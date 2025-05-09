@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -32,6 +33,24 @@ public class EmployeeRepository {
             return new ArrayList<>();
 
         return Arrays.asList(mapper.readValue(filePath.toFile(), Employee[].class));
+    }
+
+    public List<Employee> findAllPaginated(int page, int size) throws IOException {
+        if (Files.notExists(filePath))
+            throw new FileNotFoundException("File DataBase Does Not Exist");
+
+        if (Files.size(filePath) == 0)
+            return new ArrayList<>();
+
+        List<Employee> allEmployees = Arrays.asList(mapper.readValue(filePath.toFile(), Employee[].class));
+
+        int fromIndex = page * size;
+        if (fromIndex >= allEmployees.size()) {
+            return Collections.emptyList();
+        }
+
+        int toIndex = Math.min(fromIndex + size, allEmployees.size());
+        return allEmployees.subList(fromIndex, toIndex);
     }
 
     public void saveAll(List<Employee> employees) throws IOException {

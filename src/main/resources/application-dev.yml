@@ -5,3 +5,5 @@ spring:
     name: Employee-Management-Service
 file:
   path: ${PATH_FILE:src/main/resources/employees.json}
+pagination:
+  size: "10"

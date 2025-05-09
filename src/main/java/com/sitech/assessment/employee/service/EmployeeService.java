@@ -13,6 +13,6 @@ public interface EmployeeService {
 
     CreateEmployeeResponse create(EmployeeRequest employee) throws IOException;
     Employee getById(Long id) throws IOException;
-    List<Employee> search(String name, Double fromSalary, Double toSalary) throws IOException;
+    List<Employee> search(String name, Double fromSalary, Double toSalary , Integer page , Integer size) throws IOException;
 
 }
