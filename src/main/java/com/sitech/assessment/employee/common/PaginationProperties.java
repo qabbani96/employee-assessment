@@ -1,4 +1,4 @@
-package com.sitech.assessment.employee;
+package com.sitech.assessment.employee.common;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
