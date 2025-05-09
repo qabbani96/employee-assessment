@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Employee Management Service
+file:
+  path: src/main/resources/employees.json
