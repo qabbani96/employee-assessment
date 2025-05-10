@@ -17,7 +17,7 @@ This is a Spring Boot REST API project developed for an interview assessment at 
 
 ## How To Run
  - you can run it Direct without profile . or you can add below on the VM Parameters 
-   1 - Dspring.profiles.active = dev  : The different the page size 
-   2- You can run using docker 
+   1 - Dspring.profiles.active = dev  : The different the page size . 
+ - You can run using docker 
      - docker build -t employee-management-service . 
      - docker run -d -p 8080:8080 --name employee-app employee-management-service
